@@ -1,1 +1,23 @@
-This file is intentionally left blank.
+Artificial intelligence is a field of computer science focused on creating systems that can perform tasks that normally require human intelligence. These tasks include reasoning, learning, understanding language, recognizing patterns, and making decisions.
+
+Machine learning is a subset of artificial intelligence that enables systems to learn patterns from data instead of being explicitly programmed for every task. Common machine learning approaches include supervised learning, unsupervised learning, and reinforcement learning.
+
+Natural Language Processing, or NLP, is a branch of artificial intelligence that focuses on enabling computers to understand, process, and generate human language. NLP applications include text classification, sentiment analysis, machine translation, information extraction, question answering, and chatbots.
+
+Generative AI refers to artificial intelligence systems that can generate new content such as text, images, audio, video, and code. Large Language Models, or LLMs, are a type of generative AI model designed primarily for understanding and generating text.
+
+Retrieval-Augmented Generation, commonly called RAG, combines information retrieval with text generation. A RAG system first retrieves relevant information from an external knowledge source and then provides that information as context to a language model to generate an answer.
+
+Embeddings are numerical vector representations of text. They capture semantic relationships between pieces of text, allowing systems to compare their meaning using mathematical similarity measures. Texts with similar meanings tend to have embeddings that are closer together in vector space.
+
+A vector database is a database designed to store and search high-dimensional vectors efficiently. Vector databases are commonly used in semantic search, recommendation systems, retrieval-augmented generation, and other AI applications.
+
+Neo4j is a graph database that can also provide vector search capabilities. In a RAG application, Neo4j can store document chunks together with their vector embeddings and retrieve the chunks that are semantically similar to a user's query.
+
+Semantic search retrieves information based on meaning rather than relying only on exact keyword matches. For example, a search for "How do computers understand human language?" can retrieve information about Natural Language Processing even if the exact words in the query do not appear in the document.
+
+A RAG system can fail when the retrieval component returns irrelevant or incomplete context. Poor retrieval can happen because of weak chunking, unsuitable embeddings, an incomplete knowledge base, or an inappropriate similarity threshold.
+
+Chunking is the process of dividing large documents into smaller pieces before generating embeddings. Good chunking helps retrieval systems return focused and relevant pieces of information while preserving enough context for the language model.
+
+An LLM can generate an answer using retrieved context, but the quality of the final answer depends heavily on the quality of the retrieved information. If relevant information is missing from the retrieved context, the model may not be able to provide an accurate answer based on the available knowledge.

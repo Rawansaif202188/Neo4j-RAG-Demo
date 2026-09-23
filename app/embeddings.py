@@ -1,13 +1,36 @@
-def generate_embeddings(document_chunks):
-    # Placeholder for embedding generation logic
-    embeddings = []
-    for chunk in document_chunks:
-        # Here you would typically call an embedding model/API
-        embedding = some_embedding_model(chunk)  # Replace with actual model call
-        embeddings.append(embedding)
-    return embeddings
+from openai import OpenAI
 
-def some_embedding_model(text):
-    # This is a mock function to simulate embedding generation
-    # In a real implementation, you would integrate with an actual model
-    return [0.0] * 768  # Example: returning a dummy embedding of size 768
+from app.config import Config
+
+
+client = OpenAI(api_key=Config.OPENAI_API_KEY)
+
+
+def generate_embedding(text: str) -> list[float]:
+    """Generate an embedding for a single text."""
+
+    response = client.embeddings.create(
+        model=Config.OPENAI_EMBEDDING_MODEL,
+        input=text
+    )
+
+    return response.data[0].embedding
+
+
+def generate_embeddings(
+    document_chunks: list[str]
+) -> list[list[float]]:
+    """Generate embeddings for multiple document chunks."""
+
+    if not document_chunks:
+        return []
+
+    response = client.embeddings.create(
+        model=Config.OPENAI_EMBEDDING_MODEL,
+        input=document_chunks
+    )
+
+    return [
+        item.embedding
+        for item in response.data
+    ]

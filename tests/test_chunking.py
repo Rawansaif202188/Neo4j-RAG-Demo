@@ -1,9 +1,18 @@
-from app.chunking import chunk_text
+from app.rag_pipeline import RAGPipeline
 
-def test_chunk_text_returns_multiple_chunks():
-    text = "alpha beta gamma delta epsilon zeta eta theta iota kappa lambda mu nu xi"
-    chunks = chunk_text(text, chunk_size=6, overlap=2)
 
-    assert len(chunks) >= 2
-    assert all(isinstance(chunk, str) for chunk in chunks)
-    assert "alpha" in chunks[0].lower()
+def test_chunk_documents():
+    pipeline = RAGPipeline.__new__(RAGPipeline)
+
+    documents = [
+        "First paragraph.\nSecond paragraph.",
+        "Third paragraph."
+    ]
+
+    chunks = pipeline.chunk_documents(documents)
+
+    assert chunks == [
+        "First paragraph.",
+        "Second paragraph.",
+        "Third paragraph."
+    ]

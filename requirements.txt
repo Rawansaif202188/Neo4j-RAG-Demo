@@ -1,8 +1,4 @@
 neo4j
-torch
-transformers
+openai
 python-dotenv
-requests
-numpy
-pandas
-```
+pytest
